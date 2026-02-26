@@ -1,0 +1,17 @@
+<% if comment %>
+  <% if !notice.blank? %>
+    <p id="notice" style="color: green"><%= notice %></p> 
+  <% end %>
+  
+  <div id="<%= dom_id comment %>">
+    <div>
+      <%= "ID: #{comment.id}, Post ID: #{comment.post_id}" %>
+    </div>
+    <div>
+      <%= "#{comment.desc}" %>
+    </div>
+    <%= button_to "Destroy this comment", [comment.post, comment], method: :delete, form: { data: { turbo_confirm: t('destroy') } } %>
+    <hr>
+  </div>
+<% end %>
+

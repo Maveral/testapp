@@ -1,0 +1,7 @@
+<%= turbo_stream.update "comment_list" do %>
+    <%= render @comments %>
+<% end %>
+
+<%= turbo_stream.replace "sort_link" do %>
+    <%= link_to "Sortuj", sort_post_comments_path(@post, direction: @direction), id: "sort_link", data: { turbo_stream: true } %>
+<% end %>

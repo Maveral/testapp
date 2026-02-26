@@ -1,0 +1,25 @@
+#notice {
+    animation: fadeOut 3s forwards;
+    animation-delay: 2s;
+    /* Zniknie po 2 sekundach wyświetlania */
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+#navigation {
+    background-color: white;
+    border: solid 6px red;
+}
+
+a {
+    color: black;
+}

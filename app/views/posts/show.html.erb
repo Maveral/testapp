@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<% if @post.id != nil %>
+ <%= @post.id %>
+<% end %>
+
+<%= turbo_frame_tag "edit" do %>
+<%= turbo_stream_from "update_post" %>
+  <div id="post">
+    <%= render @post %>
+  </div>
+<% end %>
+<div id="links">
+      <%= link_to "Edit this post", edit_post_path(@post), data: { turbo_frame: 'edit' } %>
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, method: :delete, form: { data: { turbo_confirm: t('destroy') } } %>
+</div>
+
+  <h1>Dodaj komentarz</h1>
+
+    <button command="show-modal" commandfor="my-dialog">Dodaj komentarz</button>
+
+  <dialog id="my-dialog" closedby="any">
+      <%= render "comments/form", post: @post, comment: @post.comments.new %>
+      <br>
+    <button commandfor="my-dialog" command="close">Zamknij okno</button>
+  </dialog>
+
+  <h3>KOMENTARZE</h3>
+  <%= turbo_stream_from "posts" %>
+    <%= link_to "Sortuj", sort_post_comments_path(@post, direction: "asc"), id: "sort_link", data: { turbo_stream: true } %>
+    <div id="comment_list">
+      <%= render @post.comments.order(created_at: :asc) %>
+    </div>
+

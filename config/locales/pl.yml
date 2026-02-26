@@ -1,0 +1,24 @@
+pl:
+  hello: "Siemka"
+  destroy: "Czy jesteś pewien?"
+  errors:
+    template:
+      header:
+        one: "Znaleziono 1 błąd"
+        few: "Znaleziono %{count} błędy"
+        many: "Znaleziono %{count} błędów"
+        other: "Znaleziono %{count} błędu"
+    messages:
+      blank: "nie może być pusty"
+      too_short: "jest za krótki (minimum %{count} znaków)"
+      invalid: "jest nieprawidłowe"
+  activerecord:
+    models:
+      post: "Post"
+      comment: "Komentarz"
+    attributes:
+      post:
+        title: "Tytuł"
+        body: "Treść"
+      comment:
+        desc: "Komentarz"

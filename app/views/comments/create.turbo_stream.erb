@@ -1,0 +1,17 @@
+<% if @comment.errors.any? %>
+  <%= turbo_stream.replace "new_comment_form" do %>
+    <%= render "comments/form", post: @post, comment: @comment %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.prepend "comment_list" do %>
+      <%= render "comment", comment: @comment, notice: "Komentarz został dodany" %>
+  <% end %>
+
+  <%= turbo_stream.replace "my-dialog" do %>
+    <dialog id="my-dialog" closedby="any">
+      <%= render "comments/form", post: @post, comment: @post.comments.new %>
+      <br>
+    <button commandfor="my-dialog" command="close">Close</button>
+  </dialog>
+  <% end %>
+<% end %>

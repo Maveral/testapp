@@ -1,0 +1,19 @@
+<%= button_to "Zaloguj przez Google", user_google_oauth2_omniauth_authorize_path, data: { turbo: false } %>
+<%= link_to t('sign_up'), new_user_registration_path(locale: I18n.locale) %>
+
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Users" %>
+
+<h1>Users</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_user_path %>
