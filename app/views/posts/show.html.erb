@@ -27,7 +27,7 @@
     <button commandfor="my-dialog" command="close">Zamknij okno</button>
   </dialog>
 
-  <h3>KOMENTARZE</h3>
+  <h2>KOMENTARZE</h2>
   <%= turbo_stream_from "posts" %>
     <%= link_to "Sortuj", sort_post_comments_path(@post, direction: "asc"), id: "sort_link", data: { turbo_stream: true } %>
     <div id="comment_list">
