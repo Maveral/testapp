@@ -1,6 +1,19 @@
 pl:
-  hello: "Siemka"
+  devise:
+    registrations:
+      destroyed: "Żegnaj! Twoje konto zostało pomyślnie usunięte. Mamy nadzieję, że jeszcze do nas wrócisz."
+      user:
+        destroyed: "Konto użytkownika zostało usunięte."
+    sessions:
+      signed_in: "Zalogowano pomyślnie."
+      signed_out: "Wylogowano pomyślnie."
+      user:
+        signed_in: "Zalogowano pomyślnie."
+        signed_out: "Wylogowano pomyślnie."
   destroy: "Czy jesteś pewien?"
+  nav:
+    posts: "Posty"
+    users: "Użytkownicy"
   errors:
     template:
       header:
@@ -16,9 +29,13 @@ pl:
     models:
       post: "Post"
       comment: "Komentarz"
+      user: "Użytkownik"
     attributes:
       post:
         title: "Tytuł"
         body: "Treść"
       comment:
         desc: "Komentarz"
+      user:
+        email: "Email"
+        password: "Hasło"

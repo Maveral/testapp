@@ -36,7 +36,7 @@ class User < ApplicationRecord
           content_type: "image/jpeg"
         )
       rescue OpenURI::HTTPError => e
-        logger.error "Nie udało się pobrać awatara z Google: #{e.message}"
+        logger.error "Nie udało się pobrać awatara: #{e.message}"
       end
     end
 

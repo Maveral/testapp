@@ -17,11 +17,160 @@
     }
 }
 
-#navigation {
-    background-color: white;
-    border: solid 6px red;
-}
-
 a {
     color: black;
+}
+
+#navigation {
+  display: flex;
+  justify-content: space-between; /* To rozpycha lewą i prawą stronę */
+  align-items: center;           /* Wyśrodkowuje elementy w pionie */
+  padding: 10px 20px;
+  background-color: #f8f9fa;     /* Przykładowy jasny kolor tła */
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;                     /* Odstępy między linkami */
+}
+
+/* Stylizacja przycisku wylogowania, żeby nie wyglądał jak wielki kloc */
+.nav-button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.nav-button:hover {
+  background-color: #eee;
+}
+
+.user-email {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.locale-switcher {
+  margin-left: 10px;
+  font-size: 0.8em;
+}
+
+/* Kontener centrujący na środku ekranu */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  background-color: #f4f7f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Karta formularza */
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Grupy pól */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* Kluczowe dla szerokości 100% */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* Checkbox dla "Zapamiętaj mnie" */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Przycisk */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #357abd;
+}
+
+/* Linki na dole */
+.auth-links {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.auth-links a {
+  color: #4a90e2;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+/* Obsługa błędów Devise */
+#error_explanation {
+  background: #fff5f5;
+  color: #c53030;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
 }
