@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_rich_text :bio
   
   # Opcjonalna walidacja formatu i rozmiaru
-  validates :avatar, content_type: ['image/png', 'image/jpeg'],
+  validates :avatar, content_type: ['image/png', 'image/jpeg', 'image/webp'],
                      size: { less_than: 5.megabytes , message: 'jest za duży' }
 
   def self.from_omniauth(auth)
