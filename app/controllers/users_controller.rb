@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.all.with_attached_avatar.includes(:rich_text_bio)
   end
 
   # GET /users/1 or /users/1.json

@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<%= render @user, show_bio: true, full_size: true %>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <% if current_user == @user %>
+    <%= link_to "Edit this user", edit_user_registration_path(@user) %>
+  <% end %>
   <%= link_to "Back to users", users_path %>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <%= button_to "Usuń konto", registration_path(@user), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+
 </div>

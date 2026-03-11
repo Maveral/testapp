@@ -25,9 +25,23 @@
     <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
   </div>
 
+<% if f.object.provider.blank? %>
   <div class="field">
-    <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></p>
-    <p><%= f.password_field :current_password, autocomplete: "current-password" %></p>
+    <%= f.label :current_password %> <i>(potrzebujemy Twojego obecnego hasła, aby zatwierdzić zmiany)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+<% else %>
+  <p class="info">Zalogowano przez <%= f.object.provider.capitalize %>. Hasło nie jest wymagane do zmiany profilu.</p>
+<% end %>
+
+  <div class="field">
+    <%= f.label :avatar, "Zdjęcie profilowe" %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio, "O sobie" %><br />
+    <%= f.rich_text_area :bio %>
   </div>
 
   <div class="actions">
